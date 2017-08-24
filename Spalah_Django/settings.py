@@ -26,7 +26,7 @@ SECRET_KEY = 'u%tf8728fm+yh*oeqai4vt^#s+k5$-(d8vge0dk!uy_8e@i$ne'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [u'Bakz151.pythonanywhere.com']
+ALLOWED_HOSTS = [u'Bakz151.pythonanywhere.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -123,7 +123,12 @@ STATIC_URL = '/static/'
 
 # default static files settings for PythonAnywhere.
 # see https://help.pythonanywhere.com/pages/DjangoStaticFiles for more info
-MEDIA_ROOT = u'/home/Bakz151/Spalah_Django/media'
+# MEDIA_ROOT = u'/home/Bakz151/Spalah_Django/media'
+# MEDIA_URL = '/media/'
+# STATIC_ROOT = u'/home/Bakz151/Spalah_Django/static'
+# STATIC_URL = '/static/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
-STATIC_ROOT = u'/home/Bakz151/Spalah_Django/static'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
