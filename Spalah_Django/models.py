@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
 import os
 
 
@@ -26,3 +27,5 @@ class RenderImg():
 
 def japanese_garden():
     os.path.abspath("apps\img\yaponskij-sad.jpg")
+
+
