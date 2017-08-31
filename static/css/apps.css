@@ -9,7 +9,8 @@ body {
 }
 
 img {
-    width: 100%;
+    width:100%;
+    margin: 10px 0px 10px 0px;
 }
 
 p {
@@ -25,6 +26,10 @@ p {
         border-bottom: none;
         background: linear-gradient(to right, #6333DE 0%, #2f117d 40%, #200c54 60%, #201146 100%);
         margin-bottom: 35px;
+    }
+
+    .save {
+        margin-right: 15px
     }
 
     .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {

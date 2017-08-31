@@ -6,17 +6,7 @@ from django.contrib.auth import authenticate
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ('title', 'text', 'picture',)
-
-    def __init__(self, *args, **kwargs):
-        super(PostForm, self).__init__(*args, **kwargs)
-        self.fields['picture'].required = False
-
-
-class UploadFileForm(forms.Form):
-    title = forms.CharField(max_length=50)
-    file = forms.FileField()
-
+        fields = ('title', 'text', 'picture', )
 
 
 # http://students.summerisgone.com/labs/lab4.html
@@ -54,8 +44,3 @@ class RegistrationForm(forms.Form):
         self.password2 = self.cleaned_data.get('password2')
         # TODO: проверить, что пароли совпадают
         return self.cleaned_data
-
-#
-# class ImageUploadForm(forms.Form):
-#     """Image upload form."""
-#     image = forms.ImageField()

@@ -126,27 +126,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/dev/howto/static-files/
 
-# default static files settings for PythonAnywhere.
-# see https://help.pythonanywhere.com/pages/DjangoStaticFiles for more info
-# MEDIA_ROOT = u'/home/Bakz151/Spalah_Django/media'
-# MEDIA_URL = '/media/'
-# STATIC_ROOT = u'/home/Bakz151/Spalah_Django/static'
-# STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace('\\', '/')
 MEDIA_URL = '/media/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
-#
-# MEDIA_ROOT = root_path('media')
-# MEDIA_URL = '/media/'
-# STATIC_ROOT = path('../../static/')
-# STATIC_URL = '/static/'
-
-print(BASE_DIR)
-print(MEDIA_ROOT)
-print(STATIC_ROOT)
 
 try:
     from Spalah_Django.local_settings import *

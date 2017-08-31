@@ -8,7 +8,9 @@ root_path = lambda *args: os.path.join(ROOT, *args)
 path = lambda *args: os.path.join(PROJ_MODULE_ROOT, *args)
 
 
-MEDIA_ROOT = path('../..')
+MEDIA_ROOT = path('../media/')
 MEDIA_URL = '/media/'
 STATIC_ROOT = path('../../static/')
 STATIC_URL = '/static/'
+
+print(STATIC_ROOT)

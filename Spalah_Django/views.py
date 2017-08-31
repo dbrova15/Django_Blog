@@ -9,9 +9,9 @@ from django.contrib.auth import authenticate
 from django.contrib.auth import login, logout
 from django.utils import timezone
 from .models import Post  # , ExampleModel
-from .models import handle_uploaded_file
+# from .models import handle_uploaded_file
 from .forms import PostForm  # , ImageUploadForm
-from .forms import UploadFileForm
+# from .forms import UploadFileForm
 from django.http import HttpResponseRedirect, HttpResponse
 from .models import News
 from .forms import LoginForm
@@ -54,7 +54,9 @@ def post_new(request):
             print(form.is_valid())
     else:
         form = PostForm()
-    return render(request, 'blog/post_edit.html', {'form': form})
+    return render(request, 'blog/post_edit.html', {
+        'form': form
+    })
 
 
 @login_required
@@ -115,15 +117,15 @@ def log_in(request):
 #     return render(request, 'blog/register.html', {'form': form})
 
 
-def upload_file(request):
-    if request.method == 'POST':
-        form = UploadFileForm(request.POST, request.FILES)
-        if form.is_valid():
-            handle_uploaded_file(request.FILES['file'])
-            return HttpResponseRedirect('/')
-    else:
-        form = UploadFileForm()
-    return render(request, 'blog/upload.html', {'form': form})
+# def upload_file(request):
+#     if request.method == 'POST':
+#         form = UploadFileForm(request.POST, request.FILES)
+#         if form.is_valid():
+#             handle_uploaded_file(request.FILES['file'])
+#             return HttpResponseRedirect('/')
+#     else:
+#         form = UploadFileForm()
+#     return render(request, 'blog/upload.html', {'form': form})
 
 
 def logout_view(request):
