@@ -1,0 +1,9 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    {% if user.is_staff %}
+        <a class="btn btn-danger" href="{% url delete_post id=post.id %}">
+            Удалить тред
+        </a>
+    {% endif %}
+{% endblock %}

@@ -1,10 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<h1>Upload file</h1>
+    <!--<form enctype="multipart/form-data" method="post">{% csrf_token %}-->
+        <!--{{ form }}-->
+        <!--<p><input type="submit"  value="Отправить"></p>-->
+        <!--&lt;!&ndash;<button type="submit" class="save btn btn-default">Save</button>&ndash;&gt;-->
+    <!--</form>-->
+    <!--<form action="{% url upload_pic %}" method="post" enctype="multipart/form-data">{% csrf_token %}-->
+        <!--<p>-->
+            <!--<input id="id_image" type="file" class="" name="image">-->
+        <!--</p>-->
+        <!--<input type="submit" value="Submit" />-->
+    <!--</form>-->
+
+    {% endblock %}

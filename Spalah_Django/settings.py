@@ -12,6 +12,13 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 
 import os
 
+
+
+PROJ_MODULE_ROOT = os.path.abspath(os.path.dirname(__file__))
+ROOT = os.path.normpath(os.path.join(PROJ_MODULE_ROOT, ".."))
+root_path = lambda *args: os.path.join(ROOT, *args)
+path = lambda *args: os.path.join(PROJ_MODULE_ROOT, *args)
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATE_PATH = os.path.join(BASE_DIR, 'templates')
@@ -24,7 +31,7 @@ TEMPLATE_PATH = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = 'u%tf8728fm+yh*oeqai4vt^#s+k5$-(d8vge0dk!uy_8e@i$ne'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [u'Bakz151.pythonanywhere.com', 'localhost', '127.0.0.1']
 
@@ -119,8 +126,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/dev/howto/static-files/
 
-STATIC_URL = '/static/'
-
 # default static files settings for PythonAnywhere.
 # see https://help.pythonanywhere.com/pages/DjangoStaticFiles for more info
 # MEDIA_ROOT = u'/home/Bakz151/Spalah_Django/media'
@@ -128,7 +133,30 @@ STATIC_URL = '/static/'
 # STATIC_ROOT = u'/home/Bakz151/Spalah_Django/static'
 # STATIC_URL = '/static/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace('\\', '/')
 MEDIA_URL = '/media/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
+
+#
+# MEDIA_ROOT = root_path('media')
+# MEDIA_URL = '/media/'
+# STATIC_ROOT = path('../../static/')
+# STATIC_URL = '/static/'
+
+print(BASE_DIR)
+print(MEDIA_ROOT)
+print(STATIC_ROOT)
+
+try:
+    from Spalah_Django.local_settings import *
+except ImportError:
+    pass
+print(DEBUG)
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+    '/var/www/static/',
+
+]
+
