@@ -7,13 +7,16 @@
                 {{ post.published_date }}<br>{{post.author}}
             </div>
         {% endif %}
+
         <h1><a>{{ post.title }}</a></h1>
-        <p>{{ post.text|linebreaksbr }}</p>
+
         {% if post.picture %}
         <div>
             <img src="{{ post.picture.url }}">
         </div>
         {% endif %}
+        <p>{{ post.text|linebreaksbr }}</p>
+
         {% if user.is_authenticated %}
         <div>
             <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span
@@ -22,7 +25,6 @@
             <a class="btn btn-default" href="{% url 'post_del' pk=post.pk %}"><span
                     class="glyphicon glyphicon-remove-circle"></span></a>
         </div>
-
         {% endif %}
     </div>
 {% endblock %}

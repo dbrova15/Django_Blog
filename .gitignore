@@ -1,3 +1,9 @@
-Spalah_Django/local_settings.py
+local_settings.py
 myvenv/
 *.pyc
+__pycache__/
+.gitignore
+virtualenvs/
+.idea/
+db.sqlite3
+media/
