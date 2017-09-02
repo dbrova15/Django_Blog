@@ -1,1 +1,3 @@
 Spalah_Django/local_settings.py
+myvenv/
+*.pyc
