@@ -59,6 +59,12 @@ def post_new(request):
     })
 
 
+def post_del(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    query = post.delete()
+    return redirect("/", request, query)
+
+
 @login_required
 def post_edit(request, pk):
     post = get_object_or_404(Post, pk=pk)
@@ -78,18 +84,6 @@ def post_edit(request, pk):
     return render(request, 'blog/post_edit.html', {'form': form})
 
 
-#
-# class AuthorDelete(DeleteView):
-#     model = Post
-#     success_url = reverse_lazy('author-list')
-
-
-# def post_del(request, pk):
-#     post = get_object_or_404(Post, pk=pk)
-#     post.objects.delete(request.POST)
-#     return HttpResponseRedirect('/')
-
-
 def log_in(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
@@ -102,46 +96,9 @@ def log_in(request):
     return render(request, 'blog/login.html', {'form': form})
 
 
-# def register(request):
-#     if request.method == 'POST':
-#         form = RegistrationForm(request.POST)
-#         if form.is_valid():
-#             # TODO:
-#             # 1. создать пользователя,
-#             # 2. установить ему пароль
-#             # 3. Зайти под его именем на сайт
-#             return HttpResponseRedirect('/')
-#
-#     else:
-#         form = RegistrationForm()
-#     return render(request, 'blog/register.html', {'form': form})
-
-
-# def upload_file(request):
-#     if request.method == 'POST':
-#         form = UploadFileForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             handle_uploaded_file(request.FILES['file'])
-#             return HttpResponseRedirect('/')
-#     else:
-#         form = UploadFileForm()
-#     return render(request, 'blog/upload.html', {'form': form})
-
-
 def logout_view(request):
     logout(request)
     return HttpResponseRedirect('/')
-
-
-# def upload_pic(request, pk):
-#     if request.method == 'POST':
-#         form = ImageUploadForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             m = ExampleModel.objects.get(pk=pk)
-#             m.model_pic = form.cleaned_data['image']
-#             m.save()
-#             return HttpResponseRedirect('/')
-#     return render(request, 'blog/upload.html', {'form': form})
 
 
 def signup(request):
@@ -158,7 +115,3 @@ def signup(request):
         form = UserCreationForm()
     return render(request, 'blog/signup.html', {'form': form})
 
-
-
-def delete_post(request, id=""):
-    return HttpResponse(Post.objects.get(id=int(id)).delete())

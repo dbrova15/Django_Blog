@@ -29,6 +29,7 @@ urlpatterns = [
                   url(r'^login/$', views.log_in, name='login'),
                   url(r'^post/new/$', views.post_new, name='post_new'),
                   url(r'^post/(?P<pk>[0-9]+)/edit/$', views.post_edit, name='post_edit'),
+                  url(r'^post/(?P<pk>[0-9]+)/del/$', views.post_del, name='post_del'),
                   url(r'^news/', views.news_list, name='news_list'),
                   url(r'^logout/$', views.logout_view, name='logout'),
                   url(r'^signup/$', views.signup, name='signup'),

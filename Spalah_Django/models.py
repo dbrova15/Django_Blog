@@ -20,6 +20,7 @@ class Post(models.Model):
         return self.title
 
 
+
 class News(models.Model):
     title = models.CharField(verbose_name=u'Заголовок', max_length=255)
 
